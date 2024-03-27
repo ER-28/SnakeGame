@@ -2,7 +2,7 @@ namespace SnakeGame;
 
 public class Player
 {
-    public List<Position> Position = [];
+    public readonly List<Position> Position = [];
     public int Direction = 0;
     public int Length = 1;
     
@@ -34,19 +34,34 @@ public class Player
             Position.RemoveAt(Position.Count - 1);
         }
         
-        CheckCollision();
-    }
-
-    private void CheckCollision()
-    {
-        if (Position[0].X < 0 || Position[0].X >= Game.Map.Width || Position[0].Y < 0 || Position[0].Y >= Game.Map.Height)
+        if (Position[0].X < 0)
         {
-            Game.GameLoop = false;
+            Position[0] = new Position(Game.Map.Width - 1, Position[0].Y);
         }
-            
-        if (Position.Skip(1).Any(position => position == Position[0]))
+        else if (Position[0].X >= Game.Map.Width)
         {
-            Game.GameLoop = false;
+            Position[0] = new Position(0, Position[0].Y);
+        }
+        else if (Position[0].Y < 0)
+        {
+            Position[0] = new Position(Position[0].X, Game.Map.Height - 1);
+        }
+        else if (Position[0].Y >= Game.Map.Height)
+        {
+            Position[0] = new Position(Position[0].X, 0);
+        }
+        
+        CheckSelfCollision();
+    }
+    
+    public void CheckSelfCollision()
+    {
+        for (int i = 1; i < Position.Count; i++)
+        {
+            if (Position[0] == Position[i])
+            {
+                Game.GameLoop = false;
+            }
         }
     }
 }
