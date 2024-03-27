@@ -5,6 +5,7 @@ public class Game
     public static Map Map = new(40, 15);
     public static bool GameLoop = true;
     public static Player Player = new (Map.GetCenterPosition());
+    public static Chrono Chrono = new();
     
     public Game()
     {
@@ -18,6 +19,7 @@ public class Game
         {
             Console.Clear();
             
+            Chrono.PrintTime();
             Console.WriteLine("Score: " + ((Player.Length - 1) * 100));
             
             Map.Draw();
@@ -30,6 +32,8 @@ public class Game
             }
             
             HandleInput();
+            
+            Chrono.Update();
             Thread.Sleep(200);
         }
     }
