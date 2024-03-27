@@ -29,7 +29,7 @@ public class Game
             HandleInput();
             
             Chrono.Update();
-            Thread.Sleep(200);
+            Thread.Sleep(100);
         }
     }
     
