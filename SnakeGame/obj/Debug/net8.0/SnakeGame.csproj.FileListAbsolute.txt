@@ -1,0 +1,14 @@
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.GeneratedMSBuildEditorConfig.editorconfig
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.AssemblyInfoInputs.cache
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.AssemblyInfo.cs
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.csproj.CoreCompileInputs.cache
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/bin/Debug/net8.0/SnakeGame
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/bin/Debug/net8.0/SnakeGame.deps.json
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/bin/Debug/net8.0/SnakeGame.runtimeconfig.json
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/bin/Debug/net8.0/SnakeGame.dll
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/bin/Debug/net8.0/SnakeGame.pdb
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.dll
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/refint/SnakeGame.dll
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.pdb
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/SnakeGame.genruntimeconfig.cache
+/home/l-guerra-rago/RiderProjects/SnakeGame/SnakeGame/obj/Debug/net8.0/ref/SnakeGame.dll
