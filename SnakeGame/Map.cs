@@ -22,25 +22,29 @@ public class Map
     {
         Console.Clear();
         
-        for (int y = 0; y < Height; y++)
+        for (int y = 0; y < Height + 2; y++)
         {
-            for (int x = 0; x < Width; x++)
+            for (int x = 0; x < Width + 2; x++)
             {
-                if (y == 0 || y == Height - 1 || x == 0 || x == Width - 1)
+                if (y == 0 || y == Height + 1)
                 {
-                    Console.Write("#");
+                    Console.Write(" # ");
                 }
-                else if (Fruit.Position.X == x && Fruit.Position.Y == y)
+                else if (x == 0 || x == Width + 1)
                 {
-                    Console.Write("o");
+                    Console.Write(" # ");
                 }
-                else if (Game.Player.Position.Any(position => position.X == x && position.Y == y))
+                else if (Fruit.Position.X == x - 1 && Fruit.Position.Y == y - 1)
                 {
-                    Console.Write("\u2587");
+                    Console.Write("  o");
+                }
+                else if (Game.Player.Position.Any(position => position.X == x - 1 && position.Y == y - 1))
+                {
+                    Console.Write("  \u2587");
                 }
                 else
                 {
-                    Console.Write(" ");
+                    Console.Write("   ");
                 }
             }
             
