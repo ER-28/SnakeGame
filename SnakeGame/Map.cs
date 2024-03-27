@@ -5,6 +5,7 @@ public class Map
     public int Width { get; }
     public int Height { get; }
     public Fruit Fruit { get; set; }
+    public List<Rock> Rocks { get; set; } = new();
 
     public Map(int width, int height)
     {
@@ -34,7 +35,11 @@ public class Map
                 }
                 else if (Fruit.Position.X == x - 1 && Fruit.Position.Y == y - 1)
                 {
-                    Console.Write("  o");
+                    Console.Write("  \u058d");
+                }
+                else if (Rocks.Any(rock => rock.Position.X == x - 1 && rock.Position.Y == y - 1))
+                {
+                    Console.Write(" ᚙ ");
                 }
                 else if (Game.Player.Position.Any(position => position.X == x - 1 && position.Y == y - 1))
                 {

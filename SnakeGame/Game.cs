@@ -6,6 +6,7 @@ public class Game
     public static bool GameLoop = true;
     public static Player Player = new (Map.GetCenterPosition());
     public static Chrono Chrono = new();
+    public static int Count = 0;
     
     public Game()
     {
@@ -24,12 +25,6 @@ public class Game
             
             Map.Draw();
             Player.Move();
-
-            if (Player.Position[0] == Map.Fruit.Position)
-            {
-                Player.Length++;
-                Map.NewFruit();
-            }
             
             HandleInput();
             

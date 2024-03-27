@@ -56,9 +56,38 @@ public class Player
     
     public void CheckSelfCollision()
     {
-        for (int i = 1; i < Position.Count; i++)
+        // SELF COLLISION
+        for (var i = 1; i < Position.Count; i++)
         {
             if (Position[0] == Position[i])
+            {
+                Game.GameLoop = false;
+            }
+        }
+
+        // FRUIT COLLISION
+        if (Position[0] == Game.Map.Fruit.Position)
+        {
+            Length++;
+            Game.Count++;
+            if (Game.Count == 5)
+            {
+                Game.Map.Rocks.Add(new Rock());
+                Game.Count = 0;
+            }
+            Game.Map.NewFruit();
+        }
+        
+        
+        // ROCK COLLISION
+        if (Game.Map.Rocks.Any(rock => rock.Position == Position[0]))
+        {
+            Length--;
+            Position.RemoveAt(Position.Count - 1);
+            Game.Map.Rocks.Remove(
+                Game.Map.Rocks.First(rock => rock.Position == Position[0])
+            );
+            if (Length <= 0)
             {
                 Game.GameLoop = false;
             }
