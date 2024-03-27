@@ -70,7 +70,7 @@ public class Player
         {
             Length++;
             Game.Count++;
-            if (Game.Count == 5)
+            if (Game.Count == 4)
             {
                 Game.Map.Rocks.Add(new Rock());
                 Game.Count = 0;
@@ -84,9 +84,6 @@ public class Player
         {
             Length--;
             Position.RemoveAt(Position.Count - 1);
-            Game.Map.Rocks.Remove(
-                Game.Map.Rocks.First(rock => rock.Position == Position[0])
-            );
             if (Length <= 0)
             {
                 Game.GameLoop = false;
