@@ -20,8 +20,6 @@ public class Map
     
     public void Draw()
     {
-        Console.Clear();
-        
         for (int y = 0; y < Height + 2; y++)
         {
             for (int x = 0; x < Width + 2; x++)
@@ -57,5 +55,10 @@ public class Map
         Random random = new();
         
         return new Position(random.Next(Width), random.Next(Height));
+    }
+
+    public Position GetCenterPosition()
+    {
+        return new Position(Width / 2, Height / 2);
     }
 }

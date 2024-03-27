@@ -33,5 +33,20 @@ public class Player
         {
             Position.RemoveAt(Position.Count - 1);
         }
+        
+        CheckCollision();
+    }
+
+    private void CheckCollision()
+    {
+        if (Position[0].X < 0 || Position[0].X >= Game.Map.Width || Position[0].Y < 0 || Position[0].Y >= Game.Map.Height)
+        {
+            Game.GameLoop = false;
+        }
+            
+        if (Position.Skip(1).Any(position => position == Position[0]))
+        {
+            Game.GameLoop = false;
+        }
     }
 }

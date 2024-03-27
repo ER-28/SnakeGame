@@ -4,7 +4,7 @@ public class Game
 {
     public static Map Map = new(40, 15);
     public static bool GameLoop = true;
-    public static Player Player = new (Map.GetRandomPosition());
+    public static Player Player = new (Map.GetCenterPosition());
     
     public Game()
     {
@@ -12,10 +12,14 @@ public class Game
         Loop();
     }
 
-    private static void Loop()
+    private void Loop()
     {
         while (GameLoop)
         {
+            Console.Clear();
+            
+            Console.WriteLine("Score: " + ((Player.Length - 1) * 100));
+            
             Map.Draw();
             Player.Move();
 
@@ -25,38 +29,31 @@ public class Game
                 Map.NewFruit();
             }
             
-            if (Player.Position[0].X < 0 || Player.Position[0].X >= Map.Width || Player.Position[0].Y < 0 || Player.Position[0].Y >= Map.Height)
-            {
-                GameLoop = false;
-            }
-            
-            if (Player.Position.Skip(1).Any(position => position == Player.Position[0]))
-            {
-                GameLoop = false;
-            }
-            
-            if (Console.KeyAvailable)
-            {
-                var key = Console
-                    .ReadKey(intercept: true)
-                    .Key;
-                
-                Player.Direction = key switch 
-                {
-                    ConsoleKey.Z => 0,
-                    ConsoleKey.D => 1,
-                    ConsoleKey.S => 2,
-                    ConsoleKey.Q => 3,
-                    _ => Player.Direction
-                };
-                
-                if (key == ConsoleKey.Escape)
-                {
-                    GameLoop = false;
-                }
-            }
-            
+            HandleInput();
             Thread.Sleep(200);
+        }
+    }
+    
+    public void HandleInput()
+    {
+        if (!Console.KeyAvailable) return;
+        
+        var key = Console
+            .ReadKey(intercept: true)
+            .Key;
+                
+        Player.Direction = key switch 
+        {
+            ConsoleKey.Z => 0,
+            ConsoleKey.D => 1,
+            ConsoleKey.S => 2,
+            ConsoleKey.Q => 3,
+            _ => Player.Direction
+        };
+                
+        if (key == ConsoleKey.Escape)
+        {
+            GameLoop = false;
         }
     }
 }
