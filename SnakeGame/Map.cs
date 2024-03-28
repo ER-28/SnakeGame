@@ -5,7 +5,7 @@ public class Map
     public int Width { get; }
     public int Height { get; }
     public Fruit Fruit { get; set; }
-    public List<Rock> Rocks { get; set; } = new();
+    public List<Rock> Rocks { get; set; } = [];
 
     public Map(int width, int height)
     {

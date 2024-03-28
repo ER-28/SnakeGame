@@ -88,6 +88,7 @@ public class Player
             {
                 Game.GameLoop = false;
             }
+            // Game.GameLoop = false;
         }
     }
 }
